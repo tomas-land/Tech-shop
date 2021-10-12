@@ -1,0 +1,20 @@
+// UTILITIES
+@import 'utilities/_normalize.scss';
+@import 'utilities/_variables.scss';
+@import 'utilities/_mixins.scss';
+
+// PAGES
+@import 'pages/_home.scss';
+
+
+// LAYOUT
+@import 'layout/_header.scss';
+@import 'layout/_footer.scss';
+@import 'layout/_sidebar.scss';
+
+// COMPONENTS
+@import 'components/_card.scss';
+
+body{
+    background-color: #ebebeb;
+}
