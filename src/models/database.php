@@ -15,6 +15,11 @@ class Database
     private $error;
     private $stmt;
 
+    public function unsetPDO()
+    {
+        $this->dbh = null;
+    }
+
     public function __construct()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
@@ -52,7 +57,7 @@ class Database
             }
 
         }
-        $this->stmt->bindValue($param, $value, $type );
+        $this->stmt->bindValue($param, $value, $type);
     }
     public function execute()
     {
@@ -74,5 +79,5 @@ class Database
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
-
+  
 }

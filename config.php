@@ -9,7 +9,7 @@ define("DB_NAME", "eshop");
 
 define("SITE_TITLE", "TechShop");
 
-
+session_start();
 // $this_file = str_replace('\\', '/', __File__) ;
 // $doc_root = $_SERVER['DOCUMENT_ROOT'];
 

@@ -4,7 +4,7 @@ use App\Models\Product;
 ?>
 <div id=" homepage " class="row">
     <?php
-include 'inc/sidebar.php';?>
+include 'includes/sidebar.php';?>
     <div class="container col-md-9 row pb-5">
     <?php
 $product = new Product;

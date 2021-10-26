@@ -1,50 +1,52 @@
 <?php
 namespace App\Models;
-use PDO;
-use PDOException;
+
+// not sure about sanitizing inputs before using pdo
 class User
 {
-    // protected $username = 'plll';
-    // protected $password = 'fefef';
+
     private $db;
-    // public $user;
-    // public $pass;
 
     public function __construct()
     {
+
         $this->db = new Database;
 
     }
 
-    public function addUser($user,$pass)
+    public function createUser($username, $password)
     {
-        // $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-
-        // $options = array(
-        //     PDO::ATTR_PERSISTENT => true,
-        //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-
-        // );
-        // try {
-        //     $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-        // } catch (PDOException $e) {
-        //     $this->error = $e->getMessage();
-        // }
-        // $query=("INSERT INTO users (username, password) VALUES (:username, :password)");
-        // $this->stmt = $this->dbh->prepare($query);
-
-        // $this->stmt->bindValue(':username', $userf, PDO::PARAM_STR);
-        // $this->stmt->bindValue(':password', $passf, PDO::PARAM_STR);
-
-        // $this->stmt->execute();
-
-        
-  $this->db->query("INSERT INTO users (username, password) VALUES (:username, :password)");
-        $this->db->bind(':username', $user);
-        $this->db->bind(':password', $pass);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $this->db->query("INSERT INTO users (username, password) VALUES (:username, :password)");
+        $this->db->bind(':username', $username);
+        $this->db->bind(':password', $password);
         $this->db->execute();
 
-}
- 
+    }
+    public function loginUser($username, $password)
+    {
 
+        // taking data from form and compare with db data
+        // assign var  to session
+        $this->db->query("SELECT id,username,password FROM users WHERE username = :username");
+        $this->db->bind(":username", $username);
+        $this->db->execute();
+        $user_data = $this->db->resultSetArray();
+        //    echo "<pre>";
+        //    var_dump($user_data);
+        //    echo "</pre>";
+        if (!empty($user_data)) {
+            foreach ($user_data as $data) {
+                $user_id = $data['id'];
+                $user_name = $data['username'];
+                $user_hash_pass = $data['password'];
+            }
+            if (password_verify($password, $user_hash_pass)) {
+                $_SESSION['loggedin']= true;
+                $_SESSION['username']= $user_name;
+                $_SESSION['userid']= $user_id;
+            }
+        }
+
+    }
 }

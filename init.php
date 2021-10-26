@@ -1,3 +1,6 @@
 <?php
 
-require_once 'functions/register.php';
+// require 'includes/register.php';
+
+require_once './vendor/autoload.php';
+require_once 'config.php';

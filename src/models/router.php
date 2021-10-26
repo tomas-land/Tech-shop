@@ -2,7 +2,7 @@
 
 namespace Steampixel;
 
-class Route {
+class Router {
 
   private static $routes = Array();
   private static $pathNotFound = null;
