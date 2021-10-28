@@ -24,7 +24,9 @@ foreach ($categories as $category) {
 $subcategories = $category_obj->getAllSubCategories($category['id']);
     foreach ($subcategories as $subcategory) {
         ?>
-            <li><a href="<?=$subcategory['query-name']?>" class="link-dark rounded"><?=$subcategory['name']?></a></li>
+            <!-- <li><a href="?" class="link-dark rounded"><?=$subcategory['name']?></a></li> -->
+            <li><a href="<?=$subcategory['query-name']?>?subcategory=<?=$subcategory['category_id']?>" class="link-dark rounded"><?=$subcategory['name']?></a></li>
+
             <?php }?>
           </ul>
         </div>

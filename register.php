@@ -6,10 +6,11 @@ include 'includes/header.php';
 if (isset($_POST['register'])) {
     $validation = new Validator($_POST);
     $errors = $validation->validateForm();
+    var_dump($errors);
     if(empty($errors)){
         $user= new User;
         $user->createUser($_POST['username'],$_POST['password']);
-        header("location: admin/index.php");
+        header("location: login.php");
     }
 }
 // var_dump($_POST);
@@ -28,6 +29,9 @@ if (isset($_POST['register'])) {
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($errors['password']) ? 'is-invalid' : '') ?>" value="<?=$_POST['password']?>">
                 <div class="invalid-feedback"><?php echo $errors['password'] ?></div>
+                <label>Password</label>
+                <input type="password" name="password2" class="form-control <?php echo (!empty($errors['password2']) ? 'is-invalid' : '') ?>" value="">
+                <div class="invalid-feedback"><?php echo $errors['password2'] ?></div>
             </div>
             <button type="submit" name="register" class="btn btn-primary mt-3">Submit</button>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>

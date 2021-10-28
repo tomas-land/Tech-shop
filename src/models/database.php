@@ -15,10 +15,6 @@ class Database
     private $error;
     private $stmt;
 
-    public function unsetPDO()
-    {
-        $this->dbh = null;
-    }
 
     public function __construct()
     {

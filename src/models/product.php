@@ -15,7 +15,13 @@ public function getAllProducts(){
     return $results;
 
 }
-
+public function getAllProductsBySubcategory($subcategory_id){
+    $this->db->query("SELECT * FROM products WHERE subcategory_id = :subcategory_id");
+    $this->db->bind(':subcategory_id', $subcategory_id);
+    $results = $this->db->resultSetOBj();
+    return $results;
+  
+}
 }
 
 

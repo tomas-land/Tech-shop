@@ -1,35 +1,38 @@
 <?php
 namespace App\Models;
 
-use App\Models\Validator;
 require_once 'init.php';
 include 'includes/header.php';
+
 if (isset($_POST['login'])) {
     $validation = new Validator($_POST);
     $errors = $validation->validateForm();
-
-    echo "<pre>";
-    //        var_dump($errors);
-    // var_dump($_POST);
-    echo "</pre>";
-
     if (empty($errors)) {
         $user = new User;
         $user->loginUser($_POST['username'], $_POST['password']);
-        
-        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-            header("location: account/index.php");
-            exit;
+        if (!$user->logedin) {
+            $log_error = $user->log_error;
+        } else {
+            if($_SESSION['role'] == null){
+                redirect('customer_account/index.php');
+            } else {
+                redirect('admin_account/index.php');
+            }
+            }
         }
     }
 
-}
+// if (isset($_SESSION["logedin"]) && $_SESSION["logedin"] === true) {
+//     header("location: index.php");
+//     exit;
+// }
 var_dump($_SESSION);
 // session_destroy();
 ?>
 <div class="wrapper col-6 mt-5 mx-auto" style="height: 60vh;">
         <h2>Login</h2>
         <p>Please fill this form to login.</p>
+        <div class="" style="color: red;"><?php print($log_error)?></div>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Username</label>
@@ -46,8 +49,6 @@ var_dump($_SESSION);
 
     <?php
 include 'includes/footer.php';
-
-// issue:validating inputs
 
 ?>
 

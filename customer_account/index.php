@@ -3,7 +3,7 @@
 session_start();
  var_dump($_SESSION);
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if(!isset($_SESSION["logedin"]) && $_SESSION["logedin"] !== true){
     header("location: ../login.php");
     exit;
 }
@@ -35,7 +35,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
         </form>
         <div class="text-end">
-          <a href="logout.php"><button type="button" class="btn btn-outline-light me-2">Logout</button></a>
+          <a href="../logout.php"><button type="button" class="btn btn-outline-light me-2">Logout</button></a>
       
         </div>
       </div>
@@ -45,7 +45,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <?php
 
-include '../includes/dashboard.php';
+include '../customer_account/dashboard.php';
 include '../includes/footer.php';
 
 
