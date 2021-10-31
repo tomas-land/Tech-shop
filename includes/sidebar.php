@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+
 ?>
 <div class="flex-shrink-0 p-3 bg-white col-md-3"  >
 <?php
@@ -12,7 +13,7 @@ $categories = $category_obj->getAllCategories();
 
 foreach ($categories as $category) {
     ?>
-    
+
         <ul class="list-unstyled ps-0">
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#<?=$category['name']?>" aria-expanded="true">

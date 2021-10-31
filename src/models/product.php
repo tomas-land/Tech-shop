@@ -22,6 +22,13 @@ public function getAllProductsBySubcategory($subcategory_id){
     return $results;
   
 }
+public function getProductByID($product_id){
+    $this->db->query("SELECT id,brand,price FROM products WHERE id = :product_id");
+    $this->db->bind(':product_id', $product_id);
+    $results = $this->db->resultSetArray();
+    return $results;
+  
+}
 }
 
 

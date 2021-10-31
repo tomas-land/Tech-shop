@@ -29,7 +29,7 @@ if (isset($_POST['register'])) {
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($errors['password']) ? 'is-invalid' : '') ?>" value="<?=$_POST['password']?>">
                 <div class="invalid-feedback"><?php echo $errors['password'] ?></div>
-                <label>Password</label>
+                <label>Confirm password</label>
                 <input type="password" name="password2" class="form-control <?php echo (!empty($errors['password2']) ? 'is-invalid' : '') ?>" value="">
                 <div class="invalid-feedback"><?php echo $errors['password2'] ?></div>
             </div>

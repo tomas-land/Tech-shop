@@ -5,8 +5,7 @@ use Steampixel\Route;
 
 
 // echo "<pre>";
-//             // print_r($results);
-//             // return $results;
+//         
 //             echo "</pre>";
   
 
@@ -24,7 +23,7 @@ include 'homepage.php';
 // $request = $_SERVER['REQUEST_URI'];
 // switch ($request) {
 //     case $prefix . '/' :
-//         require __DIR__ . '/views/homepage.php';
+//         require __DIR__ . '/cart/index.php';
 //         break;
 //     case $prefix . '/register' :
 //         require __DIR__ . '/register.php';
@@ -38,8 +37,8 @@ include 'homepage.php';
 //         break;
 // }  
    
-// Route::add('/', function() {
-//   require 'views/homepage.php';
+// Route::add('/cart', function() {
+//   include 'cart/index.php';
 //  });
 
 // Route::add('/register', function() {
