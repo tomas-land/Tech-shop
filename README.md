@@ -10,3 +10,7 @@
 7.added display by subcategory functionality to homepage <br />
 8.created cart page , items can be stored in a session and displayed in cart
 
+# Play preview
+
+https://user-images.githubusercontent.com/72792707/139828166-32c86fe8-ed32-4e0e-84b0-7e5d271b6665.mp4
+
