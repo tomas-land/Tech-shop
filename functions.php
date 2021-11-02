@@ -13,5 +13,5 @@
 	}
 
 	function backOneDirectory(){
-		trim($_SERVER['REQUEST_URI'],(array_pop(explode('/',$_SERVER['REQUEST_URI']))));
+		return trim($_SERVER['REQUEST_URI'],(array_pop(explode('/',$_SERVER['REQUEST_URI']))));
 	}

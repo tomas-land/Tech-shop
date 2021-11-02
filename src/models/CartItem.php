@@ -1,35 +1,40 @@
 <?php
 namespace App\Models;
 
-class CartItem {
+class CartItem
+{
+    protected $id;
+    protected $brand;
+    protected $price;
+    protected $image;
+    protected $model;
 
-   // Item attributes are all protected:
-	protected $id;
-	protected $name;
-	protected $price;
-	protected $qty;
-	
-	// Constructor populates the attributes:
-	public function __construct($product_id)	{
-		// $this->id = $product_details[0]['id'];
-		// $this->name = $product_details[0]['brand'];
-		// $this->price = $product_details[0]['price'];
-		// $this->qty = $qty;
-		$this->id = $product_id;
-	}
-	
-	// Method that returns the ID:
-	public function getId()	{
-		return $this->id;
-	}
-
-	// Method that returns the name:
-	public function getName() {
-		return $this->name;
-	}
-
-	// Method that returns the price:
-	public function getPrice() {
-		return $this->price;
-	}
+    public function __construct($product_details)
+    {
+        $this->id = $product_details[0]['id'];
+        $this->brand = $product_details[0]['brand'];
+        $this->price = $product_details[0]['price'];
+        $this->image = $product_details[0]['image'];
+        $this->model = $product_details[0]['name'];
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    public function getImage()
+    {
+        return $this->image;
+    }
+    public function getModel()
+    {
+        return $this->model;
+    }
 }

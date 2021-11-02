@@ -29,8 +29,7 @@
         </form> -->
         <div class="text-end">
        
-          <a href="cart/index.php" class="card-link p-5 "><button type="button" class="btn btn-warning my-2">Your Cart <i class="fas fa-shopping-cart"></i></button></a>
-<!-- <?php echo strtok($_SERVER['REQUES_URI'],'cart/index.php')?> -->
+          <a href="cart.php" class="card-link p-5 "><button type="button" class="btn btn-warning my-2">Your Cart <?php  ?><i class="fas fa-shopping-cart"></i></button></a>
           <?php
 if (logedin()) {
     ?>

@@ -28,7 +28,7 @@ class Cart implements Iterator, Countable
     // protected $position = 0;
 
 // // For storing the IDs, as a convenience:
-    protected $ids = array();
+    public $ids = array();
 
 // // Constructor just sets the object up for usage:
     public function __construct()
@@ -57,7 +57,8 @@ class Cart implements Iterator, Countable
 
         // Add or update:
         if (isset($this->items[$id])) {
-            $this->updateItem($item, $this->items[$item]['qty'] + 1);
+            $this->updateItem($item, $this->items[$id]['qty'] + 1);
+           
         } else {
             $this->items[$id] = array('item' => $item, 'qty' => 1);
             $this->ids[] = $id; // Store the id, too!
@@ -74,12 +75,15 @@ class Cart implements Iterator, Countable
 
         // Delete or update accordingly:
         if ($qty === 0) {
-            // $this->deleteItem($item);
+            $this->deleteItem($item);
         } elseif (($qty > 0) && ($qty != $this->items[$id]['qty'])) {
             $this->items[$id]['qty'] = $qty;
         }
 
     } // End of updateItem() method.
+
+
+
 
 // Removes an item from the cart:
     public function deleteItem(CartItem $item)
