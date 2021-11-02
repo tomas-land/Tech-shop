@@ -8,4 +8,5 @@
 5.created register page with backend validation<br />
 6.created login page with backend validation<br />
 7.added display by subcategory functionality to homepage <br />
+8.created cart page , items can be stored in a session and displayed in cart
 
