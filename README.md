@@ -7,7 +7,7 @@
 4.created sidebar with accordion fetching categories and subcategories from database<br />
 5.created register page with backend validation<br />
 6.created login page with backend validation<br />
-7.role-based access control
+7.role-based access control<br />
 8.added display by subcategory functionality to homepage <br />
 9.created cart page , items can be stored in a session and displayed in cart
 
