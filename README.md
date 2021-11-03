@@ -13,7 +13,6 @@
 
 # Play preview
 
-https://user-images.githubusercontent.com/72792707/139828166-32c86fe8-ed32-4e0e-84b0-7e5d271b6665.mp4
-https://vimeo.com/641806812/11b6d30c01.mp4
-<iframe src="https://vimeo.com/641806812/11b6d30c01" frameborder="0" allowfullscreen></iframe>
+https://user-images.githubusercontent.com/72792707/140022714-944c0729-5d9d-4723-b584-1863adb4f518.mp4
+
 
