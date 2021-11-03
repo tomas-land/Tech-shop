@@ -4,15 +4,6 @@ namespace App\Models;
 use Steampixel\Route;
 
 
-// echo "<pre>";
-//         
-//             echo "</pre>";
-  
-
-
-
-
-
 include 'init.php';
 include 'includes/header.php';
 include 'homepage.php';
@@ -53,10 +44,6 @@ include 'homepage.php';
  
 //  // Run the router
 //  Route::run('/tech3');
-
-
-
-  
 
 
 include 'includes/footer.php';

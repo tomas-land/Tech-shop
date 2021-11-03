@@ -7,14 +7,10 @@ namespace App\Models;
 $category_obj = new Category;
 $categories = $category_obj->getAllCategories();
 
-//   echo '<pre>';
-// var_dump($categories);
-// echo '</pre>';
-
 foreach ($categories as $category) {
     ?>
 
-        <ul class="list-unstyled ps-0">
+    <ul class="list-unstyled ps-0">
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#<?=$category['name']?>" aria-expanded="true">
         <?=$category['name']?>
@@ -25,7 +21,6 @@ foreach ($categories as $category) {
 $subcategories = $category_obj->getAllSubCategories($category['id']);
     foreach ($subcategories as $subcategory) {
         ?>
-            <!-- <li><a href="?" class="link-dark rounded"><?=$subcategory['name']?></a></li> -->
             <li><a href="<?=$subcategory['query-name']?>?subcategory=<?=$subcategory['category_id']?>" class="link-dark rounded"><?=$subcategory['name']?></a></li>
 
             <?php }?>

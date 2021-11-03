@@ -1,6 +1,6 @@
 <?php
 use App\Models\Product;
-var_dump($_SERVER['REQUEST_URI']) ;
+
 ?>
 <div id=" homepage " class="row">
     <?php include 'includes/sidebar.php';?>
@@ -48,7 +48,6 @@ if (isset($_GET['subcategory'])) {
  </form>
   </div>
 </div>
-
 <?php }}?>
 </div>
 </div>

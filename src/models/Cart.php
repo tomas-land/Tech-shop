@@ -9,18 +9,7 @@ use Iterator;
 
 class Cart implements Iterator, Countable
 {
-// private $cart_items = array();
 
-// function __construct(){
-    //     $this->cart_items = array();
-    // }
-
-// public function addItem($product_id,$qty){
-
-//     $this->cart_items[$product_id] = array( 'product_id'=> $product_id, 'qty'=> $qty);
-    // }
-
-//  }
     // // Array stores the list of items in the cart:
     protected $items = array();
 
@@ -64,7 +53,7 @@ class Cart implements Iterator, Countable
             $this->ids[] = $id; // Store the id, too!
         }
 
-    } // End of addItem() method.
+    } 
 
 // // Changes an item already in the cart:
     public function updateItem(CartItem $item, $qty)
@@ -80,7 +69,7 @@ class Cart implements Iterator, Countable
             $this->items[$id]['qty'] = $qty;
         }
 
-    } // End of updateItem() method.
+    } 
 
 
 
@@ -105,7 +94,7 @@ class Cart implements Iterator, Countable
 
         }
 
-    } // End of deleteItem() method.
+    } 
 
 // Required by Iterator; returns the current value:
     public function current()
@@ -117,7 +106,7 @@ class Cart implements Iterator, Countable
         // Return the item:
         return $this->items[$index];
 
-    } // End of current() method.
+    } 
 
 // Required by Iterator; returns the current key:
     public function key()

@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 
-// not sure about sanitizing inputs before using pdo
 class User
 {
 
@@ -29,7 +28,6 @@ class User
         $this->db->query("SELECT id,username,password,role FROM users WHERE username = :username");
         $this->db->bind(":username", $username);
         $user_data = $this->db->resultSetArray();
-        var_dump($user_data);
         if (!empty($user_data)) {
             foreach ($user_data as $data) {
                 $user_id = $data['id'];

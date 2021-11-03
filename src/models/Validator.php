@@ -1,8 +1,6 @@
 <?php
 namespace App\Models;
 
-
-
 class Validator
 {
     private $db;
@@ -18,6 +16,7 @@ class Validator
 
     public function validateForm()
     {
+
         // foreach (self::$inputs as $input) {
         //     if (!array_key_exists($input, $this->data)) {
         //         trigger_error("$input is not in data");
@@ -47,9 +46,6 @@ class Validator
                 if ((array_filter($results))) {
                     $this->addError('username', 'Username already exists');
                 }
-                // echo "<pre>";
-                // var_dump($results);
-                // echo "</pre>";
             }} elseif (isset($_POST['login'])) {
             if (empty($val)) {
                 $this->addError('username', 'Username cannot be empty');

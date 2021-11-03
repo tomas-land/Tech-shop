@@ -7,48 +7,39 @@ include 'includes/header.php';
 if (!session_id()) {
     session_start();
 }
-// OOP EXAMPLE ---  NOT WORKING
-
+$cart = new Cart();
 if (isset($_POST['addToCart'])) {
     $product_id = $_POST['product_id'];
     $product = new Product;
     $product_details = $product->getProductByID($product_id);
     $cart_item = new CartItem($product_details);
-    $cart = new Cart();
+
     if (isset($_SESSION['cart'])) {
         $cart = unserialize($_SESSION["cart"]);
         $cart->addItem($cart_item);
         $_SESSION['cart'] = serialize($cart);
-        
-        //  header('location: ../index.php');
     } else {
         $cart->addItem($cart_item);
         $_SESSION['cart'] = serialize($cart);
-
     }
 }
-// pre(unserialize($_SESSION['cart'])) ;
 $cart = unserialize($_SESSION['cart']);
-
-echo count($cart);
-
 ?>
 <div class="col-12 mt-5"><div class="text-end"><a href="/tech3"><button class='btn btn-warning'>Back to shopping</button></a></div></div>
-<div class='mt-5'><h1>Your Cart</h1>
+<div class='mt-5'><h1>Your Cart <?php if (empty($cart)) {echo ' is empty';}?></h1>
 <table class="table table-striped mt-5">
   <thead>
     <tr>
-      <th scope="col" colspan="3" class='w-25'>Product</th>
-      <!-- <th scope="col">Quantity</th> -->
+      <th scope="col" colspan="3" class='w-50'>Product</th>
       <th scope="col">Price</th>
       <th scope="col">Qty</th>
     </tr>
   </thead>
   <tbody>
     <?php
-if (!$cart->isEmpty()) {
-    foreach ($cart as $item) {
 
+if (!empty($cart)) {
+    foreach ($cart as $item) {
         ?>
       <tr>
         <td><img src="<?=$item['item']->getImage()?>" alt="" style="height: 70px;width: 80px" ></td>
@@ -56,25 +47,14 @@ if (!$cart->isEmpty()) {
         <td><?=$item['item']->getModel()?></td>
         <td><?=$item['item']->getPrice()?></td>
         <td><?=$item['qty']?></td>
-        <td></td>
-        <td><form action="cart.php" method="post" >
-        <!-- <input type="hidden" name="id" value="<?=$item['item']->getId()?>">
-        <input type="submit" name="delete" value="delete"></form></td> -->
       </tr>
-      <?php }} else {header('location: index.php');}?>
-      <td></td>
+<?php }}
+?>
   </tbody>
 </table>
 </div>
-<?php
-pre($cart->ids);
-if (isset($_POST['delete'])) {
-    pre($_POST['id']);
-    $product_id = $_POST['id'];
-    $cart->delet($product_id);
-}
-// session_destroy();
 
+<?php
 
 // PROCEDURAL EXAMPLE
 // $product_ids = array();
@@ -112,7 +92,3 @@ if (isset($_POST['delete'])) {
 //         );
 //     }
 //  -----------------------------------------------------------
-
-
-?>
-
